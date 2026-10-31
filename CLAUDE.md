@@ -1,6 +1,6 @@
 # factory-demo
 
-A small reading-list HTTP API on Bun and TypeScript. It exists to test the marshal-factory end to end.
+A small reading-list HTTP API on Bun and TypeScript. It exists to test the Pilots factory end to end.
 
 ## Commands
 

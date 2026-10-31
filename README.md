@@ -1,6 +1,6 @@
 # factory-demo
 
-A tiny reading-list API used to test the marshal-factory end to end: a Linear ticket goes in, a pull request comes out.
+A tiny reading-list API used to test the Pilots factory end to end: a Linear ticket goes in, a pull request comes out.
 
 ```bash
 bun install
