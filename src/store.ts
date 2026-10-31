@@ -28,7 +28,7 @@ export class BookStore {
   /** Books in the order they were added. `limit` caps how many come back. */
   list(limit?: number): Book[] {
     if (limit === undefined) return [...this.books];
-    return this.books.slice(0, limit + 1);
+    return this.books.slice(0, limit);
   }
 
   markRead(id: number): Book | undefined {
