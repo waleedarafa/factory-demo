@@ -45,6 +45,15 @@ describe("books API", () => {
     expect((await call(app, "POST", "/books", { title: "Dune" })).status).toBe(400);
   });
 
+  test("returns at most limit books, in the order they were added", async () => {
+    const app = createApp();
+    for (const title of ["A", "B", "C"]) await call(app, "POST", "/books", { title, author: "x" });
+    const titles = async (path: string) =>
+      ((await (await call(app, "GET", path)).json()) as { title: string }[]).map((b) => b.title);
+    expect(await titles("/books?limit=2")).toEqual(["A", "B"]);
+    expect(await titles("/books?limit=0")).toEqual([]);
+  });
+
   test("rejects a negative limit", async () => {
     const app = createApp();
     expect((await call(app, "GET", "/books?limit=-1")).status).toBe(400);
